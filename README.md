@@ -1,7 +1,7 @@
 iso3166
 =======
 
-A simple [Go](https://golang.org) [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) library.
+A simple [Go](https://golang.org) [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) library for dealing with country/regions/county codes.
 
 Usage
 -----
