@@ -8,17 +8,18 @@ Usage
 
 Import with:
 
-
+```go
     import "github.com/TheBookPeople/iso3166"
-
+```
 
 Only one function exists so far:
 
+```go
     text, err = iso3166.Decode("GB", "") // will return "United Kingdom"
     text, err = iso3166.Decode("GB", "CHS") // will return "Cheshire"
     text, err = iso3166.Decode("", "CHS") // will return an error
     text, err = iso3166.Decode("", "foobar") // will return an error
-
+```
 
 Contributing
 ------------
