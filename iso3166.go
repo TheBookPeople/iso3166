@@ -4071,7 +4071,6 @@ func Decode(country, region string) (string, error) {
 	if region != "" {
 		code += "-" + region
 	}
-	errors.New(code)
 	if v, ok := codes[code]; ok {
 		return v, nil
 	}
