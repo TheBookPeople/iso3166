@@ -5,6 +5,55 @@ import (
 	"fmt"
 )
 
+var extraCodes = map[string]string{
+	"GB-ABC": "Armagh, Banbridge and Craigavon",
+	"GB-AND": "North Down and Ards",
+	"GB-ANN": "Antrim and Newtownabbey",
+	"GB-AVN": "Avon",
+	"GB-BRK": "Berkshire",
+	"GB-CBF": "Central Bedfordshire",
+	"GB-CCG": "Causeway Coast and Glens",
+	"GB-CHE": "Cheshire East",
+	"GB-CHW": "Cheshire West and Chester",
+	"GB-DRS": "Derry and Strabane",
+	"GB-DVV": "Devon",
+	"GB-FMO": "Fermanagh and Omagh",
+	"GB-GTL": "Greater London",
+	"GB-GTM": "Greater Manchester",
+	"GB-HAL": "Halton",
+	"GB-HUM": "Humberside",
+	"GB-LBC": "Lisburn and Castlereagh",
+	"GB-MEA": "Mid and East Antrim",
+	"GB-MSY": "Merseyside",
+	"GB-MUL": "Mid Ulster",
+	"GB-NMD": "Newry, Mourne and Down",
+	"GB-SYK": "South Yorkshire",
+	"GB-TWR": "Tyne and Wear",
+	"GB-WMD": "West Midlands",
+	"GB-WYK": "West Yorkshire",
+
+	/*
+		TODO: Add Welsh divisions.
+		Anglesey	Sir Ynys Môn	YNM
+		Bridgend	Pen-y-bont ar Ogwr	POG
+		Cardiff	Caerdydd	CRD
+		Carmarthenshire	Sir Gaerfyrddin	GFY
+		Ceredigion	Sir Ceredigion	CGN
+		Denbighshire	Sir Ddinbych	DDB
+		Flintshire	Sir y Fflint	FFL
+		Merthyr Tydfil	Merthyr Tudful	MTU
+		Monmouthshire	Sir Fynwy	FYN
+		Neath Port Talbot	Castell-nedd Port Talbot	CTL
+		Newport	Casnewydd	CNW
+		Pembrokeshire	Sir Benfro	BNF
+		Rhondda, Cynon, Taff	Rhondda, Cynon, Taf	RCT
+		Swansea	Abertawe	ATA
+		Torfaen	Tor-faen	TOF
+		Vale of Glamorgan	Bro Morgannwg	BMG
+		Wrexham	Wrecsam	WRC
+	*/
+}
+
 var codes = map[string]string{
 	"AF":      "Afghanistan",
 	"AF-BDS":  "Badakhshān",
@@ -4060,7 +4109,7 @@ var codes = map[string]string{
 
 // Decode returns the name of the country based on the code.
 // If region is empty, the country code will be returned.
-func Decode(country, region string) (string, error) {
+func Decode(country, region string, useExtraCodes bool) (string, error) {
 	if country == "" {
 		return "", errors.New("country was not supplied")
 	}
@@ -4074,5 +4123,12 @@ func Decode(country, region string) (string, error) {
 	if v, ok := codes[code]; ok {
 		return v, nil
 	}
+
+	if useExtraCodes {
+		if v, ok := extraCodes[code]; ok {
+			return v, nil
+		}
+	}
+
 	return "", fmt.Errorf("region %q was not recognised for country %q", region, country)
 }
