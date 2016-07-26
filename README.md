@@ -15,11 +15,15 @@ Import with:
 Only one function exists so far:
 
 ```go
-    text, err = iso3166.Decode("GB", "") // will return "United Kingdom"
-    text, err = iso3166.Decode("GB", "CHS") // will return "Cheshire"
-    text, err = iso3166.Decode("", "CHS") // will return an error
-    text, err = iso3166.Decode("", "foobar") // will return an error
+    text, err = iso3166.Decode("GB", "", true) // will return "United Kingdom"
+    text, err = iso3166.Decode("GB", "CHS", true) // will return "Cheshire"
+    text, err = iso3166.Decode("", "CHS", true) // will return an error
+    text, err = iso3166.Decode("", "foobar", true) // will return an error
 ```
+
+The final bool argument specifies if additional values are to be used. E.g. GB-DVV is not a valid ISO code,
+but is still used in the wild. If you are translating real-world addresses, best set this to true.
+
 
 Contributing
 ------------
