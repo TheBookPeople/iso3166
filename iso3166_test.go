@@ -256,6 +256,9 @@ func TestDecode(t *testing.T) {
 		{"IE", "WH", "Westmeath (An Iarmhí)", false},
 		{"IE", "WX", "Wexford (Loch Garman)", false},
 		{"IE", "WW", "Wicklow (Cill Mhantáin)", false},
+
+		// extra:
+		{"GB", "E", "London East", false},
 	}
 
 	for _, test := range tests {

@@ -32,6 +32,7 @@ var extraCodes = map[string]string{
 	"GB-WMD": "West Midlands",
 	"GB-WYK": "West Yorkshire",
 
+	"GB-E": "London East",
 	/*
 		TODO: Add Welsh divisions.
 		Anglesey	Sir Ynys Môn	YNM
