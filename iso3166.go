@@ -32,6 +32,8 @@ var extraCodes = map[string]string{
 	"GB-WMD": "West Midlands",
 	"GB-WYK": "West Yorkshire",
 
+	"GB-TSS": "Teesside",
+
 	"GB-E": "London East",
 	/*
 		TODO: Add Welsh divisions.
