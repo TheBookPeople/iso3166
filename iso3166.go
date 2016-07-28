@@ -32,7 +32,7 @@ var extraCodes = map[string]string{
 	"GB-WMD": "West Midlands",
 	"GB-WYK": "West Yorkshire",
 
-	"GB-TSS": "Teesside",
+	"GB-TS": "Teesside",
 
 	"GB-E": "London East",
 	/*

@@ -259,7 +259,7 @@ func TestDecode(t *testing.T) {
 
 		// extra:
 		{"GB", "E", "London East", false},
-		{"GB", "TSS", "Teesside", false},
+		{"GB", "TS", "Teesside", false},
 	}
 
 	for _, test := range tests {
