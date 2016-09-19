@@ -80,7 +80,7 @@ var codes = map[string]string{
 	"AF-LOW":  "Lowgar",
 	"AF-NAN":  "Nangrahār (Nangarhār)",
 	"AF-NIM":  "Nīmrūz",
-	"AF-ORU":  "Orūzgān (Urūzgā",
+	"AF-ORU":  "Orūzgān (Urūzgā)",
 	"AF-PIA":  "Paktīā",
 	"AF-PKA":  "Paktīkā",
 	"AF-PAR":  "Parwān",
