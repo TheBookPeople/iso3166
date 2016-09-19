@@ -3,6 +3,7 @@ package iso3166
 import (
 	"errors"
 	"fmt"
+	"strings"
 )
 
 var extraCodes = map[string]string{
@@ -4143,4 +4144,19 @@ func Decode(country, region string, useExtraCodes bool) (string, error) {
 	}
 
 	return "", fmt.Errorf("region %q was not recognised for country %q", region, country)
+}
+
+// Truncate - Attempts to cleanly truncates an address by removing any translation
+// in [] brackets, and then truncating if still required.
+func Truncate(code string, max int) string {
+
+	if len(code) > max {
+		code = strings.Split(code, "[")[0]
+	}
+
+	if len(code) > max {
+		code = code[0:max]
+	}
+
+	return strings.TrimSpace(code)
 }

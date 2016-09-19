@@ -268,3 +268,27 @@ func TestDecode(t *testing.T) {
 		}
 	}
 }
+
+func TestTruncate(t *testing.T) {
+
+	tests := []struct {
+		country  string
+		region   string
+		expected string
+	}{
+		{"GB", "SWA", "Swansea (City of)"},
+		{"GB", "VGL", "Vale of Glamorgan, The"},
+	}
+
+	for _, test := range tests {
+		place, err := Decode(test.country, test.region, false)
+		if err != nil {
+			t.Errorf("Decode failed: %v", err)
+		}
+		place = Truncate(place, 30)
+
+		if place != test.expected {
+			t.Errorf("Expected truncated value to be %q but got %q", test.expected, place)
+		}
+	}
+}
